@@ -1,0 +1,6 @@
+{
+  "name": "E-Portfolio Yan Amru Abdilah",
+  "description": "Website E-Portfolio untuk refleksi awal, analisis perangkat pembelajaran, instrumen penilaian, dan model guru profesional Yan Amru Abdilah.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

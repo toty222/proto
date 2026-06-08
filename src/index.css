@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --color-primary: #cfac8e;
+  --color-accent: #cfac8e;
+  --color-light-pink: #d8d8d8;
+  --color-bg-soft: #efe9e4;
+  
+  --shadow-glass: 0 8px 32px 0 rgba(207, 172, 142, 0.08);
+  --shadow-glass-strong: 0 12px 40px 0 rgba(207, 172, 142, 0.15);
+}
+
+@layer utilities {
+  .backdrop-glass {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  
+  .backdrop-glass-pink {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: rgba(239, 233, 228, 0.75);
+    border: 1px solid rgba(207, 172, 142, 0.2);
+  }
+
+  .backdrop-glass-dark {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: rgba(30, 26, 24, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+}
+
+/* Custom scrollbar to match the theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #efe9e4;
+}
+::-webkit-scrollbar-thumb {
+  background: #d8d8d8;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #cfac8e;
+}
