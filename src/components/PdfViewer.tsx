@@ -130,7 +130,7 @@ export default function PdfViewer({ documentId, title }: PdfViewerProps) {
 
             <div className="space-y-3 font-sans text-xs text-gray-600">
               <p><strong className="text-gray-900">1. Pengolahan Nilai Asesmen Akhir:</strong> Praktikan telah memproses data asesmen formatif secara kontinu melalui lembar observasi digital.</p>
-              <p><strong className="text-gray-900">2. Keaktifan Siswa dalam Diskusi Sokratik:</strong> Mampu menghidupkan suasana kelas besar yang heterogen menggunakan analogi Salatiga dan Wonosobo.</p>
+              <p><strong className="text-gray-900">2. Keaktifan Siswa dalam Diskusi Sokratik:</strong> Mampu menghidupkan suasana kelas besar yang heterogen menggunakan analogi Salatiga dan Demak.</p>
             </div>
           </div>
         </div>

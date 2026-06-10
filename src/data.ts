@@ -10,9 +10,8 @@ export const profileData: StudentProfile = {
   pggCampus: "Universitas Kristen Satya Wacana (UKSW)",
   pplSchool: "SMA Negeri 3 Salatiga",
   origin: "Demak, Jawa Tengah",
-  originUnique: "Wonosobo adalah surga di lereng pegunungan dengan julukan 'Negeri di Atas Awan'. Dikelilingi oleh kemegahan lereng Gunung Sindoro dan Gunung Sumbing, kota asal saya terkenal akan kawasan bersejarah Dieng Plateau dengan mistisisme kental, fenomena embun es upas yang memikat, tradisi pemotongan rambut gimbal yang mistwi, buah khas Carica yang segar, serta kehangatan semangkuk Mie Ongklok legendaris kala udara dingin menyelimuti. Karakter alam pegunungan yang asri ini menanamkan jiwa ketenangan, kegigihan hidup, kehangatan empati, serta keramahan yang mendalam di dalam nadi saya.",
-  inspiration: "Inspirasi terbesar saya lahir ketika menyaksikan anak-anak hebat di daerah asal saya berjuang menembus keterbatasan untuk mendapatkan pendidikan yang layak. Saya tersadar bahwa guru adalah arsitek jiwa paling krusial bagi masa depan bangsa. Melalui bimbingan akademik yang kokoh di UKSW and pembelajaran lapangan yang nyata selama PPL di SMA Negeri 3 Salatiga, tekad saya mengkristal untuk tidak sekadar menjadi 'pengajar kurikulum', melainkan seorang pendidik transformatif yang mampu menggugah potensi terdalam dari setiap keunikan peserta didik.",
-  vision: "Tujuan mulia saya adalah bertransformasi menjadi guru yang seutuhnya profesional, berkarakter mulia, adaptif menyongsong perkembangan zaman melalui integrasi teknologi pembelajaran (TPACK), serta senantiasa mengedepankan keberpihakan pada siswa di setiap rancangan aksi pembelajaran.",
+  originUnique: "Demak adalah kabupaten di pesisir Pantura Jawa Tengah yang dikenal sebagai kota Islam tertua di Pulau Jawa, dengan Masjid Agung Demak sebagai saksi bisu kejayaan Walisongo. Udaranya panas dan terik khas pantai utara, kehidupan masyarakatnya dinamis dengan tradisi nelayan dan tambak yang kuat. Dari tambak itulah lahir kuliner paling ikonik Demak Bandeng Presto, ikan bandeng yang dimasak dengan tekanan tinggi hingga seluruh durinya lunak dan bisa dimakan, dengan cita rasa gurih dan harum rempah yang khas, menjadikannya oleh-oleh favorit yang selalu diburu siapa pun yang melintas di jalur Pantura.",
+  inspiration: "Kecintaan saya pada dunia pendidikan berawal dari hal yang sederhana melihat anak-anak di kampung halaman saya yang penuh semangat namun harus berjuang lebih keras dari siapapun hanya untuk bisa mengenyam pendidikan yang layak. Dari situlah saya mulai memahami betapa besarnya peran seorang guru dalam hidup seseorang. Perjalanan saya di UKSW membentuk fondasi akademik yang kuat, sementara pengalaman PPL di SMA Negeri 3 Salatiga mengajarkan saya arti mengajar yang sesungguhnya bahwa kelas bukan hanya soal materi and nilai, melainkan tentang bagaimana seorang pendidik mampu menyentuh hati siswa, membangkitkan rasa percaya diri mereka, dan menemani mereka menemukan jati diri serta potensi yang selama ini tersembunyi dalam diri mereka.",
   quote: "Pendidik yang hebat tidak sekadar mentransfer pengetahuan; mereka menyalakan api rasa ingin tahu, melahirkan pemikiran mandiri, dan memahat karakter masa depan dengan penuh welas asih.",
   quoteAuthor: "Yan Amru Abdilah, S.Pd."
 };
@@ -20,7 +19,7 @@ export const profileData: StudentProfile = {
 export const teacherModelData: TeacherModel = {
   misi: [
     "Menyelenggarakan kegiatan pembelajaran yang berpihak sepenuhnya pada murid (Student-Centered Learning) dengan skenario yang aman, inklusif, dan menyenangkan.",
-    "Mengintegrasikan secara aktif kebudayaan lokal daerah (Wonosobo dan Salatiga) ke dalam konten ajar guna memperkuat penanaman nilai Profil Pelajar Pancasila.",
+    "Mengintegrasikan secara aktif kebudayaan lokal daerah (Demak dan Salatiga) ke dalam konten ajar guna memperkuat penanaman nilai Profil Pelajar Pancasila.",
     "Terbuka terhadap perkembangan teknologi baru (TPACK) serta metode pembelajaran berbasis projek interaktif.",
     "Mengembangkan kolaborasi bersinergi bersama komunitas praktisi guru, pihak sekolah, akademisi, serta wali murid guna menciptakan ekosistem belajar yang holistik."
   ],
@@ -64,7 +63,7 @@ export const teacherModelData: TeacherModel = {
     },
     {
       title: "Gigih & Berdaya Juang",
-      description: "Daya tahan mental yang tangguh laksana karakter pegunungan Wonosobo di Dieng untuk melampaui berbagai keterbatasan hambatan sarana.",
+      description: "Daya tahan mental yang tangguh laksana karakter gigih historis masyarakat Demak untuk melampaui berbagai keterbatasan hambatan sarana.",
       iconName: "TrendingUp"
     }
   ]

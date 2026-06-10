@@ -7,7 +7,6 @@ import React, { useState } from "react";
 import { motion } from "motion/react";
 import { FileText, Award, TrendingUp, Sparkles, ClipboardCheck, ArrowRight, UserCheck } from "lucide-react";
 import { Instrument, InstrumentScore } from "../types";
-import PdfViewer from "./PdfViewer";
 
 interface PenilaianInstrumenProps {
   instruments: Instrument[];
@@ -273,24 +272,7 @@ export default function PenilaianInstrumen({ instruments }: PenilaianInstrumenPr
               </div>
             ))}
           </div>
-<div className="space-y-6">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold italic">L7</div>
-                <h4 className="text-xl font-bold text-gray-900">Penyusunan Perangkat Pembelajaran</h4>
-              </div>
-              <div className="bg-white rounded-3xl p-4 shadow-xl h-[600px] border-4 border-white overflow-hidden">
-                <iframe 
-                  id="iframe-pdf-lampiran7"
-                  src="public/documents/Mandmip .pdf" 
-                  className="w-full h-full rounded-2xl bg-gray-50"
-                  style={{ border: 'none' }}
-                />
-              </div>
-            </div>
         </div>
-
-        {/* Dynamic PDF Reader Viewer Block */}
-        <PdfViewer documentId={currentInstrument.id} title={currentInstrument.title} />
 
       </div>
     </section>

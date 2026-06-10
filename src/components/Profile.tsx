@@ -21,7 +21,7 @@ export default function Profile({ profile }: ProfileProps) {
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-tr from-primary to-accent rounded-full filter blur-3xl opacity-15" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
           {/* Column 1: Custom Profile Image with Glassmorphism Border Grid span 5 */}
           <div className="lg:col-span-5 flex flex-col items-center">
@@ -72,7 +72,7 @@ export default function Profile({ profile }: ProfileProps) {
                 </div>
                 <div>
                   <p className="text-[10px] font-mono text-gray-500 uppercase">ASAL DAERAH</p>
-                  <p className="font-semibold text-xs text-gray-800">Wonosobo</p>
+                  <p className="font-semibold text-xs text-gray-800">{profile.origin.split(',')[0]}</p>
                 </div>
               </div>
               
@@ -119,57 +119,42 @@ export default function Profile({ profile }: ProfileProps) {
               <div className="space-y-2">
                 <h3 className="font-display font-semibold text-lg text-gray-950 flex items-center gap-2">
                   <span className="p-1 px-2.5 rounded-lg bg-primary/10 text-primary text-sm font-mono">01</span>
-                  Kesejukan Pegunungan Wonosobo
+                  Warisan Sejarah & Identitas Asal Daerah
                 </h3>
                 <p className="text-gray-700 leading-relaxed text-sm">
                   Hai, nama saya <strong className="text-primary">{profile.name}</strong>, seorang calon pendidik profesional yang berasal dari <strong className="text-primary">{profile.origin}</strong>. {profile.originUnique}
                 </p>
               </div>
 
-              {/* Inspiration Section */}
-              <div className="space-y-2">
+              {/* Quote Section directly replacing Inspiration */}
+              <div className="space-y-3 p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-primary/5 via-accent/5 to-transparent border border-primary/10 relative overflow-hidden">
+                <div className="absolute -right-4 -bottom-4 text-primary/5 select-none pointer-events-none">
+                  <Quote className="h-24 w-24" />
+                </div>
+                
                 <h3 className="font-display font-semibold text-lg text-gray-950 flex items-center gap-2">
                   <span className="p-1 px-2.5 rounded-lg bg-accent/10 text-accent text-sm font-mono">02</span>
-                  Inspirasi & Panggilan Jiwa Pendidik
+                  Prinsip Pendidikan & Komitmen Guru
                 </h3>
-                <p className="text-gray-700 leading-relaxed text-sm">
-                  {profile.inspiration}
-                </p>
-                <p className="text-gray-750 leading-relaxed text-sm font-medium italic mt-2 text-primary/95">
-                  {profile.vision}
-                </p>
+                
+                <div className="relative flex gap-3.5 items-start">
+                  <Quote className="h-8 w-8 text-primary/40 flex-shrink-0 mt-0.5" />
+                  <div className="space-y-1.5">
+                    <p className="font-display font-medium text-sm sm:text-base italic leading-relaxed text-gray-800">
+                      "{profile.quote}"
+                    </p>
+                    <p className="text-xs font-mono font-semibold text-primary/80">
+                      — {profile.quoteAuthor} ({profile.pplSchool})
+                    </p>
+                  </div>
+                </div>
               </div>
 
             </div>
 
-            {/* Refined blockquote section at bottom */}
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.5 }}
-              className="relative p-6 rounded-2xl bg-gradient-to-r from-primary to-accent text-white shadow-glass-strong overflow-hidden"
-              id="quote-container"
-            >
-              {/* Stylized background quote icon */}
-              <div className="absolute right-4 bottom-0 text-white/10 transform translate-y-1/4 scale-150 select-none">
-                <Quote className="h-32 w-32" />
-              </div>
-              
-              <div className="relative flex space-x-4 items-start">
-                <Quote className="h-10 w-10 text-light-pink/60 flex-shrink-0" />
-                <div className="space-y-2">
-                  <p className="font-display font-medium text-base sm:text-lg italic leading-relaxed text-white/95">
-                    "{profile.quote}"
-                  </p>
-                  <p className="text-xs font-mono tracking-wider text-light-pink font-semibold">
-                    — {profile.quoteAuthor} ({profile.pplSchool})
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
           </div>
         </div>
+
       </div>
     </section>
   );

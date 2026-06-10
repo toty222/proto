@@ -21,6 +21,7 @@ export default function Navbar({ activeSection, setActiveSection }: NavbarProps)
     { id: "analisis", label: "Analisis Artefak" },
     { id: "penilaian", label: "Instrumen Penilaian" },
     { id: "model", label: "Model Guru" },
+    { id: "lampiran", label: "Lampiran & Portofolio" },
   ];
 
   useEffect(() => {

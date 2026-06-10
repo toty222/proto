@@ -9,6 +9,7 @@ import Profile from "./components/Profile";
 import ArtefakAnalysis from "./components/ArtefakAnalysis";
 import PenilaianInstrumen from "./components/PenilaianInstrumen";
 import ModelGuru from "./components/ModelGuru";
+import Lampiran from "./components/Lampiran";
 import Footer from "./components/Footer";
 import { profileData, teacherModelData, artefactAspects, instrumentsData } from "./data";
 
@@ -31,7 +32,7 @@ export default function App() {
     };
 
     const observer = new IntersectionObserver(handleIntersection, observerOptions);
-    const sections = ["profil", "analisis", "penilaian", "model"];
+    const sections = ["profil", "analisis", "penilaian", "model", "lampiran"];
     
     sections.forEach((id) => {
       const el = document.getElementById(id);
@@ -63,6 +64,7 @@ export default function App() {
         <PenilaianInstrumen instruments={instrumentsData} />
         
         <ModelGuru model={teacherModelData} />
+        <Lampiran />
       </main>
 
       {/* Polish Affiliations & Affiliated Footnote */}

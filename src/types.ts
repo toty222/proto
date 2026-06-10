@@ -10,7 +10,6 @@ export interface StudentProfile {
   origin: string;
   originUnique: string;
   inspiration: string;
-  vision: string;
   quote: string;
   quoteAuthor: string;
 }
