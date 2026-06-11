@@ -9,7 +9,7 @@ export interface AttachmentItem {
   id: string;
   title: string;
   subtitle: string;
-  category: "Perangkat Ajar" | "Asesmen" | "Penilaian" | "Karya Siswa" | "Galeri";
+  category: "Perangkat Ajar" | "Penilaian" | "Karya Siswa" | "Galeri";
   fileType: "PDF" | "DOCX" | "XLSX" | "MP4" | "FOTO";
   colorClass: string;
   imgUrl?: string; // Captured camera base64, uploaded file, or local source string (e.g. /src/assets/your-photo.jpg)
@@ -21,7 +21,107 @@ export default function Lampiran() {
   const [items, setItems] = useState<AttachmentItem[]>(() => {
     const saved = localStorage.getItem("ppg_portfolio_attachments_v2");
     if (saved) {
-      try { return JSON.parse(saved); } catch (e) { console.error(e); }
+      try {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed)) {
+          return parsed
+            .filter((item: any) => item.id !== "6" && item.id !== "7" && item.id !== "3")
+            .map((item: any) => {
+              if (item.category === "Asesmen") {
+                return { ...item, category: "Penilaian" };
+              }
+              if (item.id === "g1") {
+                return {
+                  ...item,
+                  title: "Praktik Mengajar",
+                  subtitle: "gambar guru latihan mengajar dengan didampingi guru pamong",
+                  imgUrl: "/src/assets/images/gam1.jpeg"
+                };
+              }
+              if (item.id === "g2") {
+                return {
+                  ...item,
+                  title: "Praktikum Pemrograman Menyenangkan",
+                  subtitle: "Suasana antusias siswa berkelompok saat mempraktikkan game interaktif sederhana di Scratch.",
+                  imgUrl: "/src/assets/images/gam2.jpeg"
+                };
+              }
+              if (item.id === "g3") {
+                return {
+                  ...item,
+                  title: "Pembelajaran difrensiasi",
+                  subtitle: "Siswa answering writing on board",
+                  imgUrl: "/src/assets/images/gam3.jpeg"
+                };
+              }
+              if (item.id === "g4") {
+                return {
+                  ...item,
+                  title: "Penilaian mengajar oleh guru pamong",
+                  subtitle: "Penilaian mengajar oleh guru pamong",
+                  imgUrl: "/src/assets/images/gam4.jpeg"
+                };
+              }
+              if (item.id === "1") {
+                return {
+                  ...item,
+                  title: "RPP - Algoritma dan Pemrograman 1",
+                  subtitle: "RPP menggunakan menggunakan pembelajaran difrensial",
+                  fileType: "PDF",
+                  imgUrl: "/src/assets/images/rpp1.pdf"
+                };
+              }
+              if (item.id === "2") {
+                return {
+                  ...item,
+                  title: "RPP – Algoritma dan Pemrograman 2",
+                  subtitle: "RPP menggunakan menggunakan pembelajaran difrensial",
+                  fileType: "PDF",
+                  imgUrl: "/src/assets/images/rpp2.pdf"
+                };
+              }
+              if (item.id === "4") {
+                return {
+                  ...item,
+                  title: "Penilaian Lampiran 7",
+                  subtitle: "Instrumen Penilaian Penyusunan Perangkat Pembelajaran",
+                  fileType: "PDF",
+                  imgUrl: "/src/assets/images/Lam7.pdf"
+                };
+              }
+              if (item.id === "5") {
+                return {
+                  ...item,
+                  title: "Penilaian Lampiran 8",
+                  subtitle: "Instrumen Penilaian Praktik Mengajar",
+                  fileType: "PDF",
+                  imgUrl: "/src/assets/images/lam8.pdf"
+                };
+              }
+              if (item.id === "8") {
+                return {
+                  ...item,
+                  title: "portofolio produk 1",
+                  subtitle: "pembuatan pyramid dengan fungsi Printf",
+                  category: "Karya Siswa",
+                  fileType: "FOTO",
+                  imgUrl: "/src/assets/images/gam5.jpg"
+                };
+              }
+              if (item.id === "9") {
+                return {
+                  ...item,
+                  title: "portofolio produk 2",
+                  subtitle: "Tugas siswa membuat program sederhana",
+                  category: "Karya Siswa",
+                  fileType: "FOTO",
+                  imgUrl: "/src/assets/images/gam6.jpg"
+                };
+              }
+              return item;
+            });
+        }
+      } catch (e) { console.error(e); }
     }
     return [
       /* =========================================================================
@@ -30,122 +130,104 @@ export default function Lampiran() {
          ========================================================================= */
       {
         id: "g1",
-        title: "Praktik Mengajar Berpikir Komputasional",
-        subtitle: "Siswa aktif berdiskusi merumuskan algoritma penyelesaian masalah di kelas informatika X-A.",
+        title: "Praktik Mengajar",
+        subtitle: "gambar guru latihan mengajar dengan didampingi guru pamong",
         category: "Galeri",
         fileType: "FOTO",
         colorClass: "emerald",
-        imgUrl: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=85"
+        imgUrl: "/src/assets/images/gam1.jpeg"
       },
       {
         id: "g2",
         title: "Praktikum Pemrograman Menyenangkan",
-        subtitle: "Suasana antusias siswa saat mempraktikkan game interaktif sederhana di Scratch.",
+        subtitle: "Suasana antusias siswa berkelompok saat mempraktikkan game interaktif sederhana di Scratch.",
         category: "Galeri",
         fileType: "FOTO",
         colorClass: "blue",
-        imgUrl: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=85"
+        imgUrl: "/src/assets/images/gam2.jpeg"
       },
       {
         id: "g3",
-        title: "Bimbingan Asistensi Individu",
-        subtitle: "Memberikan panduan belajar langsung bagi siswa yang memerlukan pendampingan modul algoritma.",
+        title: "Pembelajaran difrensiasi",
+        subtitle: "Siswa menjawab soal dengan menulis di papan tulis",
         category: "Galeri",
         fileType: "FOTO",
         colorClass: "amber",
-        imgUrl: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=800&q=85"
+        imgUrl: "/src/assets/images/gam3.jpeg"
       },
       {
         id: "g4",
-        title: "Presentasi Kelompok dan Unjuk Karya",
-        subtitle: "Siswa membagikan hasil karya proyek algoritma di depan kelas dengan sangat antusias.",
+        title: "Penilaian mengajar oleh guru pamong",
+        subtitle: "Penilaian mengajar oleh guru pamong",
         category: "Galeri",
         fileType: "FOTO",
         colorClass: "pink",
-        imgUrl: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=85"
+        imgUrl: "/src/assets/images/gam4.jpeg"
       },
       {
         id: "1",
-        title: "Modul Ajar – Berpikir Komputasional",
-        subtitle: "Rancangan materi berpikir komputasional kelas X",
+        title: "RPP - Algoritma dan Pemrograman 1",
+        subtitle: "RPP menggunakan menggunakan pembelajaran difrensial",
         category: "Perangkat Ajar",
         fileType: "PDF",
-        colorClass: "rose"
+        colorClass: "rose",
+        imgUrl: "/src/assets/images/rpp1.pdf"
       },
       {
         id: "2",
-        title: "RPP – Algoritma dan Pemrograman",
-        subtitle: "Langkah pembelajaran interaktif logika pemrograman dasar",
-        category: "Perangkat Ajar",
-        fileType: "DOCX",
-        colorClass: "blue"
-      },
-      {
-        id: "3",
-        title: "LKPD – Pemrograman Scratch",
-        subtitle: "Lembar kerja praktis menggerakkan sprite dasar",
+        title: "RPP – Algoritma dan Pemrograman 2",
+        subtitle: "RPP menggunakan menggunakan pembelajaran difrensial",
         category: "Perangkat Ajar",
         fileType: "PDF",
-        colorClass: "emerald"
+        colorClass: "blue",
+        imgUrl: "/src/assets/images/rpp2.pdf"
       },
       {
         id: "4",
-        title: "Soal Ulangan Harian",
-        subtitle: "Instrumen asesmen sumatif Bab 1-3",
-        category: "Asesmen",
-        fileType: "DOCX",
-        colorClass: "amber"
+        title: "Penilaian Lampiran 7",
+        subtitle: "Instrumen Penilaian Penyusunan Perangkat Pembelajaran",
+        category: "Penilaian",
+        fileType: "PDF",
+        colorClass: "amber",
+        imgUrl: "/src/assets/images/Lam7.pdf"
       },
       {
         id: "5",
-        title: "Rubrik Penilaian Proyek",
-        subtitle: "Rubrik penilaian produk digital siswa",
-        category: "Asesmen",
-        fileType: "XLSX",
-        colorClass: "teal"
-      },
-      {
-        id: "6",
-        title: "Jurnal Mengajar Harian",
-        subtitle: "Catatan refleksi dan progress mengajar harian",
+        title: "Penilaian Lampiran 8",
+        subtitle: "Instrumen Penilaian Praktik Mengajar",
         category: "Penilaian",
         fileType: "PDF",
-        colorClass: "purple"
-      },
-      {
-        id: "7",
-        title: "Absensi Kelas X-A & X-B",
-        subtitle: "Rekap kehadiran siswa selama masa PPL",
-        category: "Penilaian",
-        fileType: "XLSX",
-        colorClass: "sky"
+        colorClass: "teal",
+        imgUrl: "/src/assets/images/lam8.pdf"
       },
       {
         id: "8",
-        title: "Portofolio Produk Siswa",
-        subtitle: "Kumpulan karya terbaik siswa kelas X",
+        title: "portofolio produk 1",
+        subtitle: "pembuatan pyramid dengan fungsi Printf",
         category: "Karya Siswa",
-        fileType: "PDF",
-        colorClass: "pink"
+        fileType: "FOTO",
+        colorClass: "pink",
+        imgUrl: "/src/assets/images/gam5.jpg"
       },
       {
         id: "9",
-        title: "Video Pembelajaran Informatika",
-        subtitle: "Tutorial pemrograman Scratch untuk pemula",
+        title: "portofolio produk 2",
+        subtitle: "Tugas siswa membuat program sederhana",
         category: "Karya Siswa",
-        fileType: "MP4",
-        colorClass: "violet"
+        fileType: "FOTO",
+        colorClass: "violet",
+        imgUrl: "/src/assets/images/gam6.jpg"
       }
     ];
   });
 
-  const categories = ["Semua", "Perangkat Ajar", "Asesmen", "Penilaian", "Karya Siswa", "Galeri"];
+  const categories = ["Semua", "Perangkat Ajar", "Penilaian", "Karya Siswa", "Galeri"];
 
   // State for Add Modal & Actions
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [newTitle, setNewTitle] = useState("");
   const [newSubtitle, setNewSubtitle] = useState("");
-  const [newCategory, setNewCategory] = useState<"Perangkat Ajar" | "Asesmen" | "Penilaian" | "Karya Siswa" | "Galeri">("Perangkat Ajar");
+  const [newCategory, setNewCategory] = useState<"Perangkat Ajar" | "Penilaian" | "Karya Siswa" | "Galeri">("Perangkat Ajar");
   const [newFileType, setNewFileType] = useState<"PDF" | "DOCX" | "XLSX" | "MP4" | "FOTO">("FOTO");
   const [customImage, setCustomImage] = useState<string>("");
   const [customLocalPath, setCustomLocalPath] = useState<string>(""); // allows typing direct path /src/assets/photo.jpg etc
@@ -171,7 +253,7 @@ export default function Lampiran() {
 
   // Sync to localStorage
   useEffect(() => {
-    localStorage.setItem("ppg_portfolio_attachments", JSON.stringify(items));
+    localStorage.setItem("ppg_portfolio_attachments_v2", JSON.stringify(items));
   }, [items]);
 
   // Handle stream cleanup
@@ -262,7 +344,7 @@ export default function Lampiran() {
       title: newTitle,
       subtitle: newSubtitle || "Dokumen pendukung portofolio",
       category: newCategory,
-      fileType: newCategory === "Galeri" ? "FOTO" : newFileType,
+      fileType: (newCategory === "Galeri" || newCategory === "Karya Siswa") ? "FOTO" : newFileType,
       colorClass: randomColor,
       imgUrl: customLocalPath.trim() || customImage || undefined,
       isCustom: true
@@ -405,7 +487,7 @@ export default function Lampiran() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <AnimatePresence mode="popLayout">
             {filteredItems.map((item) => {
-              const isGallery = item.category === "Galeri";
+              const isGallery = item.category === "Galeri" || item.category === "Karya Siswa";
               return (
                 <motion.div
                   key={item.id}
@@ -436,7 +518,7 @@ export default function Lampiran() {
                     </span>
 
                     {/* If custom image base64 or path exists, show actual preview with styled vignette */}
-                    {item.imgUrl ? (
+                    {item.imgUrl && item.fileType === "FOTO" ? (
                       <div className="absolute inset-0 w-full h-full overflow-hidden">
                         <img 
                           src={item.imgUrl} 
@@ -530,13 +612,6 @@ export default function Lampiran() {
                             <Eye className="h-3.5 w-3.5" />
                             <span>Zoom Foto</span>
                           </button>
-                          <button
-                            onClick={(e) => startEditItem(item, e)}
-                            className="py-2.5 px-3 rounded-xl bg-white border border-gray-200 hover:border-gray-300 text-gray-700 text-xs font-semibold flex items-center justify-center gap-1 transition-colors duration-200"
-                            title="Ubah Source Gambar / Keterangan"
-                          >
-                            <span>Ubah Source</span>
-                          </button>
                         </div>
                       ) : (
                         <div className="flex gap-2">
@@ -561,13 +636,6 @@ export default function Lampiran() {
                                 <span>Unduh</span>
                               </>
                             )}
-                          </button>
-                          <button
-                            onClick={(e) => startEditItem(item, e)}
-                            className="py-2.5 px-3 rounded-xl bg-white border border-gray-200 hover:border-gray-300 text-gray-700 text-xs font-semibold flex items-center justify-center gap-1 transition-colors duration-200"
-                            title="Ubah Source File / Keterangan Dokumen"
-                          >
-                            <span>Ubah Source</span>
                           </button>
                         </div>
                       )}
@@ -683,14 +751,13 @@ export default function Lampiran() {
                       value={newCategory}
                       onChange={(e) => {
                         setNewCategory(e.target.value as any);
-                        if (e.target.value === "Galeri") {
+                        if (e.target.value === "Galeri" || e.target.value === "Karya Siswa") {
                           setNewFileType("FOTO");
                         }
                       }}
                       className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-emerald-800/15 focus:border-emerald-800 transition-all text-gray-800"
                     >
                       <option value="Perangkat Ajar">Perangkat Ajar</option>
-                      <option value="Asesmen">Asesmen Implemetasi</option>
                       <option value="Penilaian">Penilaian PPL</option>
                       <option value="Karya Siswa">Karya & Produk Siswa</option>
                       <option value="Galeri">Galeri Kegiatan</option>
@@ -702,7 +769,7 @@ export default function Lampiran() {
                     <label className="text-xs font-bold text-gray-700 block">Format Pembukti</label>
                     <select 
                       value={newFileType}
-                      disabled={newCategory === "Galeri"}
+                      disabled={newCategory === "Galeri" || newCategory === "Karya Siswa"}
                       onChange={(e) => setNewFileType(e.target.value as any)}
                       className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-emerald-800/15 focus:border-emerald-800 transition-all text-gray-800 disabled:opacity-60"
                     >

@@ -41,10 +41,8 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8">
-          <p className="text-xs text-gray-400 flex items-center gap-1">
-            © {new Date().getFullYear()} Yan Amru Abdilah. Dibuat penuh dengan
-            <Heart className="h-3 w-3 text-primary fill-current" />
-            untuk Refleksi Sukses PPG.
+          <p className="text-xs text-gray-400">
+            © 2026 Yan Amru Abdilah.
           </p>
 
           <button

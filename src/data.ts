@@ -72,35 +72,35 @@ export const teacherModelData: TeacherModel = {
 export const artefactAspects: ArtefactAspect[] = [
   {
     id: "kendala",
-    aspectTitle: "Kendala Selama Proses Penyusunan",
+    aspectTitle: "Kendala selama Proses Pelaksanaan PPL",
     description: "Tantangan nyata yang dihadapi saat mendesain rancangan perangkat dan produk pembelajaran.",
     details: [
       "Mengidentifikasi secara presisi kebutuhan belajar individual siswa SMA Negeri 3 Salatiga yang memiliki tingkat pemahaman kognitif serta keunikan gaya belajar yang sangat variatif.",
       "Mendesain aktivitas diferensiasi proses dan produk agar seluruh siswa tetap merasa difasilitasi tanpa merasa dikotak-kotakkan.",
       "Kesulitan menyelaraskan muatan lokal kemasyarakatan ke dalam Capaian Pembelajaran secara logis tanpa mengorbankan durasi waktu yang terbatas.",
-      "Merumuskan instrumen penilaian autentik yang mengukur tingkat literasi dan berpikir kritis (HOTS) siswa daripada sekadar ingatan mekanistis."
+      "Merumuskan instrumen penilaian autentik yang mengukur tingkat literasi dan berpikir kritis (HOTS) siswa daripada sekadar ingatan mekanistis.",
+      "Fasilitas yang ada dikelas terkadang memiliki kendala, seperti proyektor yang error"
     ],
     iconName: "AlertCircle"
   },
   {
     id: "pedagogi",
-    aspectTitle: "Teori Pedagogi yang Diadopsi",
-    description: "Landasan keilmuan pendidikan yang dijadikan sebagai kompas penyusunan perangkat pembelajaran.",
+    aspectTitle: "Teori yang dipakai",
+    description: "Landasan keilmuan pendidikan yang dijadikan sebagai kompas pelaksanaan pembelajaran.",
     details: [
       "Teori Pembelajaran Berdiferensiasi dari Carol Ann Tomlinson: Membagi pendekatan berdasarkan Diferensiasi Konten, Diferensiasi Proses, dan Diferensiasi Produk untuk memfasilitasi keragaman potensi murid.",
-      "Understanding by Design (UbD) dari Jay McTighe & Grant Wiggins: Menerapkan paradigma alur mundur (Backward Design) yang memprioritaskan outcomes target capaian akhir terlebih dahulu sebelum melangkah pada penyusunan modul operasional.",
       "Konstruktivisme Sosial Lev Vygotsky: Menekankan Zone of Proximal Development (ZPD) dan pemberian bantuan sementara (Scaffolding) lewat pembentukan kelompok kooperatif berpasangan heterogen.",
-      "Self-Determined Learning (Heutagogy): Mendorong kemandirian peserta didik dalam menentukan metode pengerjaan projek mandiri mereka."
+      "guru ditempatkan sebagai penuntun, bukan penguasa. Guru bertugas mengarahkan, membimbing, dan memfasilitasi perkembangan anak sesuai dengan kodratnya, tanpa berhak memaksakan kehendaknya ( ki hajar dewantoro )"
     ],
-    pedagogicalTheory: "Perpaduan harmonis antara Understanding by Design dan Pembelajaran Berdiferensiasi menghasilkan modul pembelajaran yang tidak hanya efisien mencapai tujuan kurikulum standar nasional, melainkan juga humanis memperlakukan murid sesuai kapasitas natural mereka.",
     iconName: "GraduationCap"
   },
   {
     id: "keberhasilan",
     aspectTitle: "Faktor Keberhasilan Penerapan",
-    description: "Aspek utama pendorong terealisasinya produk pembelajaran berkualitas di ruang kelas SMA Negeri 3 Salatiga.",
+    description: "Aspek utama pendorong terealisasinya pembelajaran berkualitas di ruang kelas SMA Negeri 3 Salatiga.",
     details: [
       "Bimbingan intensif interaktif harian serta saran berharga dari Guru Pamong di SMA Negeri 3 Salatiga dan Dosen Pembimbing UKSW.",
+      "Penerapan pembelajaran yang berfokus pada siswa (Students-Centric) dan pembelajaran berdiferensiasi untuk memenuhi keunikan kebutuhan belajar masing-masing anak.",
       "Pemanfaatan media pembelajaran interaktif berbasis teknologi (Game edukasi, simulasi virtual, LKPD digital berbasis kanvas kreatif).",
       "Keterlibatan proaktif siswa yang tinggi akibat tema pembelajaran yang diangkat sangat dekat dengan keseharian kontekstual mereka.",
       "Kemauan guru praktikan untuk terus mengevaluasi dan merespons kegaduhan atau kebosanan anak di sela-sela jam mengajar secara sigap."
@@ -110,13 +110,24 @@ export const artefactAspects: ArtefactAspect[] = [
   {
     id: "penyesuaian",
     aspectTitle: "Penyesuaian Situasi Kelas Berbeda",
-    description: "Fleksibilitas model rancangan pembelajaran untuk diterapkan pada karakteristik kelas yang berbeda-beda.",
+    description: "Fleksibilitas model pembelajaran untuk diterapkan pada karakteristik kelas yang berbeda-beda.",
     details: [
-      "Apabila kelas selanjutnya tidak memiliki fasilitas proyektor digital aktif, media interaktif slide diubah menjadi media papan tempel berukuran besar (Concept Map Board) yang digerakkan manual oleh siswa.",
+      "Apabila kelas selanjutnya tidak memiliki fasilitas proyektor digital aktif, media interaktif yang bisa diakses melalui handphone siswa masing masing.",
       "Di kelas dengan tingkat keteraturan mandiri rendah, porsi kerja kelompok yang terbuka luas dikompresi menjadi aktivitas berpasangan (Think-Pair-Share) yang didampingi dengan lembaran instruksi mini per 10 menit.",
       "Menyediakan bank soal bertingkat tingkat Bloom (dari C2 s.d C6) sehingga sekolah berkebutuhan akselerasi di kelas tertentu mendapat tantangan setara kognitifnya."
     ],
     iconName: "Sliders"
+  },
+  {
+    id: "capaian",
+    aspectTitle: "Capaian Akhir",
+    description: "Harapan yang dicapai dalam kegiatan PPL",
+    details: [
+      "Penguasaan Kompetensi Mengajar — Mahasiswa mampu menerapkan teori pendidikan yang telah dipelajari di bangku kuliah ke dalam praktik pembelajaran nyata di sekolah, mulai dari perencanaan, pelaksanaan, hingga evaluasi pembelajaran.",
+      "Pengembangan Profesionalisme Keguruan — Mahasiswa memiliki sikap dan perilaku profesional sebagai calon pendidik, termasuk kemampuan berinteraksi dengan peserta didik, sesama guru, dan lingkungan sekolah secara etis dan bertanggung jawab.",
+      "Refleksi dan Peningkatan Diri — Mahasiswa mampu melakukan refleksi kritis terhadap pengalaman mengajar selama PPL sebagai dasar untuk terus mengembangkan diri menjadi pendidik yang kompeten dan adaptif."
+    ],
+    iconName: "TrendingUp"
   }
 ];
 

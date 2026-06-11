@@ -18,7 +18,7 @@ export default function Navbar({ activeSection, setActiveSection }: NavbarProps)
 
   const menuItems = [
     { id: "profil", label: "Profil Guru" },
-    { id: "analisis", label: "Analisis Artefak" },
+    { id: "analisis", label: "Analisis & Refleksi" },
     { id: "penilaian", label: "Instrumen Penilaian" },
     { id: "model", label: "Model Guru" },
     { id: "lampiran", label: "Lampiran & Portofolio" },

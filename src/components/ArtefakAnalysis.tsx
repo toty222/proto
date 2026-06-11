@@ -5,7 +5,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { AlertCircle, GraduationCap, Award, Sliders, CheckCircle2, ChevronRight, Bookmark } from "lucide-react";
+import { AlertCircle, GraduationCap, Award, Sliders, CheckCircle2, ChevronRight, Bookmark, TrendingUp } from "lucide-react";
 import { ArtefactAspect } from "../types";
 
 interface ArtefactAnalysisProps {
@@ -26,6 +26,8 @@ export default function ArtefactAnalysis({ aspects }: ArtefactAnalysisProps) {
         return <Award className={className} />;
       case "Sliders":
         return <Sliders className={className} />;
+      case "TrendingUp":
+        return <TrendingUp className={className} />;
       default:
         return <Bookmark className={className} />;
     }
@@ -44,13 +46,13 @@ export default function ArtefactAnalysis({ aspects }: ArtefactAnalysisProps) {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <span className="text-primary uppercase tracking-widest text-xs font-mono font-bold bg-primary/10 px-3.5 py-1.5 rounded-full">
-            Refleksi & Evaluasi Perangkat
+            Refleksi & Evaluasi
           </span>
           <h2 className="font-display font-bold text-3xl sm:text-4xl text-gray-900 tracking-tight">
-            Analisis Artefak Produk Pembelajaran
+            Analisis Pelaksanaan PPL
           </h2>
           <p className="text-gray-600">
-            Sebuah refleksi terstruktur terhadap rancangan rencana pembelajaran (modul ajar) yang disusun selama masa PPG Prajabatan serta praktiknya dalam membimbing siswa-siswi SMA Negeri 3 Salatiga.
+            Sebuah refleksi terstruktur terhadap pelaksanaan PPL yang disusun selama masa PPG Prajabatan dalam praktiknya di SMA Negeri 3 Salatiga.
           </p>
         </div>
 
@@ -126,7 +128,7 @@ export default function ArtefactAnalysis({ aspects }: ArtefactAnalysisProps) {
                   <div className="flex items-start justify-between border-b border-gray-150 pb-5">
                     <div>
                       <span className="text-[11px] font-mono font-bold text-primary uppercase tracking-wider block mb-1">
-                        Poin Analisis Ke- {aspects.findIndex(a => a.id === selectedId) + 1}
+                        {aspects.findIndex(a => a.id === selectedId) + 1 === 2 ? "analisis ke 2" : `Analisis ke ${aspects.findIndex(a => a.id === selectedId) + 1}`}
                       </span>
                       <h3 className="font-display font-bold text-2xl text-gray-950">
                         {selectedAspect.aspectTitle}
