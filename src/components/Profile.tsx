@@ -7,7 +7,8 @@ import React from "react";
 import { motion } from "motion/react";
 import { MapPin, School, BookOpen, Quote, Sparkles } from "lucide-react";
 import { StudentProfile } from "../types";
-import profileImg from "../assets/images/briliian_herda_profile_1780540232273.png";
+
+const profileImg = "/documents/briliian_herda_profile_1780540232273.png";
 
 interface ProfileProps {
   profile: StudentProfile;

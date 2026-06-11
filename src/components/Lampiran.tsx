@@ -12,7 +12,7 @@ export interface AttachmentItem {
   category: "Perangkat Ajar" | "Penilaian" | "Karya Siswa" | "Galeri";
   fileType: "PDF" | "DOCX" | "XLSX" | "MP4" | "FOTO";
   colorClass: string;
-  imgUrl?: string; // Captured camera base64, uploaded file, or local source string (e.g. /src/assets/your-photo.jpg)
+  imgUrl?: string; // Captured camera base64, uploaded file, or local source string (e.g. /documents/your-photo.jpg)
   isCustom?: boolean;
 }
 
@@ -35,7 +35,7 @@ export default function Lampiran() {
                   ...item,
                   title: "Praktik Mengajar",
                   subtitle: "gambar guru latihan mengajar dengan didampingi guru pamong",
-                  imgUrl: "/src/assets/images/gam1.jpeg"
+                  imgUrl: "/documents/gam1.jpeg"
                 };
               }
               if (item.id === "g2") {
@@ -43,7 +43,7 @@ export default function Lampiran() {
                   ...item,
                   title: "Praktikum Pemrograman Menyenangkan",
                   subtitle: "Suasana antusias siswa berkelompok saat mempraktikkan game interaktif sederhana di Scratch.",
-                  imgUrl: "/src/assets/images/gam2.jpeg"
+                  imgUrl: "/documents/gam2.jpeg"
                 };
               }
               if (item.id === "g3") {
@@ -51,7 +51,7 @@ export default function Lampiran() {
                   ...item,
                   title: "Pembelajaran difrensiasi",
                   subtitle: "Siswa answering writing on board",
-                  imgUrl: "/src/assets/images/gam3.jpeg"
+                  imgUrl: "/documents/gam3.jpeg"
                 };
               }
               if (item.id === "g4") {
@@ -59,7 +59,7 @@ export default function Lampiran() {
                   ...item,
                   title: "Penilaian mengajar oleh guru pamong",
                   subtitle: "Penilaian mengajar oleh guru pamong",
-                  imgUrl: "/src/assets/images/gam4.jpeg"
+                  imgUrl: "/documents/gam4.jpeg"
                 };
               }
               if (item.id === "1") {
@@ -68,7 +68,7 @@ export default function Lampiran() {
                   title: "RPP - Algoritma dan Pemrograman 1",
                   subtitle: "RPP menggunakan menggunakan pembelajaran difrensial",
                   fileType: "PDF",
-                  imgUrl: "/src/assets/images/rpp1.pdf"
+                  imgUrl: "/documents/rpp1.pdf"
                 };
               }
               if (item.id === "2") {
@@ -77,7 +77,7 @@ export default function Lampiran() {
                   title: "RPP – Algoritma dan Pemrograman 2",
                   subtitle: "RPP menggunakan menggunakan pembelajaran difrensial",
                   fileType: "PDF",
-                  imgUrl: "/src/assets/images/rpp2.pdf"
+                  imgUrl: "/documents/rpp2.pdf"
                 };
               }
               if (item.id === "4") {
@@ -86,7 +86,7 @@ export default function Lampiran() {
                   title: "Penilaian Lampiran 7",
                   subtitle: "Instrumen Penilaian Penyusunan Perangkat Pembelajaran",
                   fileType: "PDF",
-                  imgUrl: "/src/assets/images/Lam7.pdf"
+                  imgUrl: "/documents/Lam7.pdf"
                 };
               }
               if (item.id === "5") {
@@ -95,7 +95,7 @@ export default function Lampiran() {
                   title: "Penilaian Lampiran 8",
                   subtitle: "Instrumen Penilaian Praktik Mengajar",
                   fileType: "PDF",
-                  imgUrl: "/src/assets/images/lam8.pdf"
+                  imgUrl: "/documents/lam8.pdf"
                 };
               }
               if (item.id === "8") {
@@ -105,7 +105,7 @@ export default function Lampiran() {
                   subtitle: "pembuatan pyramid dengan fungsi Printf",
                   category: "Karya Siswa",
                   fileType: "FOTO",
-                  imgUrl: "/src/assets/images/gam5.jpg"
+                  imgUrl: "/documents/gam5.jpg"
                 };
               }
               if (item.id === "9") {
@@ -115,7 +115,7 @@ export default function Lampiran() {
                   subtitle: "Tugas siswa membuat program sederhana",
                   category: "Karya Siswa",
                   fileType: "FOTO",
-                  imgUrl: "/src/assets/images/gam6.jpg"
+                  imgUrl: "/documents/gam6.jpg"
                 };
               }
               return item;
@@ -126,7 +126,7 @@ export default function Lampiran() {
     return [
       /* =========================================================================
          CATATAN: Anda dapat mengubah url gambar di bawah (imgUrl) ke file lokal Anda
-         seperti "/src/assets/foto_anda.jpg" atau menggunakan tombol edit di UI.
+         seperti "/documents/foto_anda.jpg" atau menggunakan tombol edit di UI.
          ========================================================================= */
       {
         id: "g1",
@@ -135,7 +135,7 @@ export default function Lampiran() {
         category: "Galeri",
         fileType: "FOTO",
         colorClass: "emerald",
-        imgUrl: "/src/assets/images/gam1.jpeg"
+        imgUrl: "/documents/gam1.jpeg"
       },
       {
         id: "g2",
@@ -144,7 +144,7 @@ export default function Lampiran() {
         category: "Galeri",
         fileType: "FOTO",
         colorClass: "blue",
-        imgUrl: "/src/assets/images/gam2.jpeg"
+        imgUrl: "/documents/gam2.jpeg"
       },
       {
         id: "g3",
@@ -153,7 +153,7 @@ export default function Lampiran() {
         category: "Galeri",
         fileType: "FOTO",
         colorClass: "amber",
-        imgUrl: "/src/assets/images/gam3.jpeg"
+        imgUrl: "/documents/gam3.jpeg"
       },
       {
         id: "g4",
@@ -162,7 +162,7 @@ export default function Lampiran() {
         category: "Galeri",
         fileType: "FOTO",
         colorClass: "pink",
-        imgUrl: "/src/assets/images/gam4.jpeg"
+        imgUrl: "/documents/gam4.jpeg"
       },
       {
         id: "1",
@@ -171,7 +171,7 @@ export default function Lampiran() {
         category: "Perangkat Ajar",
         fileType: "PDF",
         colorClass: "rose",
-        imgUrl: "/src/assets/images/rpp1.pdf"
+        imgUrl: "/documents/rpp1.pdf"
       },
       {
         id: "2",
@@ -180,7 +180,7 @@ export default function Lampiran() {
         category: "Perangkat Ajar",
         fileType: "PDF",
         colorClass: "blue",
-        imgUrl: "/src/assets/images/rpp2.pdf"
+        imgUrl: "/documents/rpp2.pdf"
       },
       {
         id: "4",
@@ -189,7 +189,7 @@ export default function Lampiran() {
         category: "Penilaian",
         fileType: "PDF",
         colorClass: "amber",
-        imgUrl: "/src/assets/images/Lam7.pdf"
+        imgUrl: "/documents/Lam7.pdf"
       },
       {
         id: "5",
@@ -198,7 +198,7 @@ export default function Lampiran() {
         category: "Penilaian",
         fileType: "PDF",
         colorClass: "teal",
-        imgUrl: "/src/assets/images/lam8.pdf"
+        imgUrl: "/documents/lam8.pdf"
       },
       {
         id: "8",
@@ -207,7 +207,7 @@ export default function Lampiran() {
         category: "Karya Siswa",
         fileType: "FOTO",
         colorClass: "pink",
-        imgUrl: "/src/assets/images/gam5.jpg"
+        imgUrl: "/documents/gam5.jpg"
       },
       {
         id: "9",
@@ -216,7 +216,7 @@ export default function Lampiran() {
         category: "Karya Siswa",
         fileType: "FOTO",
         colorClass: "violet",
-        imgUrl: "/src/assets/images/gam6.jpg"
+        imgUrl: "/documents/gam6.jpg"
       }
     ];
   });
@@ -230,7 +230,7 @@ export default function Lampiran() {
   const [newCategory, setNewCategory] = useState<"Perangkat Ajar" | "Penilaian" | "Karya Siswa" | "Galeri">("Perangkat Ajar");
   const [newFileType, setNewFileType] = useState<"PDF" | "DOCX" | "XLSX" | "MP4" | "FOTO">("FOTO");
   const [customImage, setCustomImage] = useState<string>("");
-  const [customLocalPath, setCustomLocalPath] = useState<string>(""); // allows typing direct path /src/assets/photo.jpg etc
+  const [customLocalPath, setCustomLocalPath] = useState<string>(""); // allows typing direct path /documents/photo.jpg etc
   
   // State for Direct Editing of any Image/Card Source Path
   const [editingItem, setEditingItem] = useState<AttachmentItem | null>(null);
@@ -782,7 +782,7 @@ export default function Lampiran() {
                   </div>
                 </div>
 
-                {/* Specific field for typing Local image source path (like "/src/assets/pic.jpg") */}
+                {/* Specific field for typing Local image source path (like "/documents/pic.jpg") */}
                 <div className="space-y-1.5 p-4 rounded-2xl bg-[#cfac8e]/5 border border-[#cfac8e]/10 text-amber-950">
                   <div className="flex items-center justify-between">
                     <label className="text-xs font-bold text-gray-800 block">Atau Input Source Gambar Lokal (Berubah Lewat Local Source)</label>
@@ -790,7 +790,7 @@ export default function Lampiran() {
                   </div>
                   <input 
                     type="text" 
-                    placeholder="Contoh: /src/assets/foto_ppl.jpg atau https://images.unsplash.com/..." 
+                    placeholder="Contoh: /documents/foto_ppl.jpg atau https://images.unsplash.com/..." 
                     value={customLocalPath}
                     onChange={(e) => {
                       setCustomLocalPath(e.target.value);
@@ -801,7 +801,7 @@ export default function Lampiran() {
                     className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#cfac8e]/20 focus:border-[#cfac8e] transition-all text-gray-800 font-sans"
                   />
                   <p className="text-[10px] text-gray-500 leading-normal mt-1">
-                    Anda bisa mengetik path lokal aset Anda secara tertulis di atas (misal <code className="font-mono text-[9px] bg-white px-1 py-0.5 rounded border">/src/assets/foto_saya.jpg</code>) sehingga gambarnya disuplai langsung dari folder lokal Anda.
+                    Anda bisa mengetik path lokal aset Anda secara tertulis di atas (misal <code className="font-mono text-[9px] bg-white px-1 py-0.5 rounded border">/documents/foto_saya.jpg</code>) sehingga gambarnya disuplai langsung dari folder lokal Anda.
                   </p>
                 </div>
 
@@ -996,12 +996,12 @@ export default function Lampiran() {
                   <input 
                     type="text" 
                     value={editingImgUrl}
-                    placeholder="Contoh: public/documents/ModulAjar.pdf atau /src/assets/foto.jpg"
+                    placeholder="Contoh: /documents/ModulAjar.pdf atau /documents/foto.jpg"
                     onChange={(e) => setEditingImgUrl(e.target.value)}
                     className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-800 font-sans focus:outline-none focus:ring-2 focus:ring-[#cfac8e]/15 focus:border-[#cfac8e]"
                   />
                   <p className="text-[10px] text-gray-500 leading-normal">
-                    Tulis path relatif file lokal yang Anda taruh di dalam folder project Anda (misal <code className="bg-gray-100 px-1 py-0.5 rounded font-mono text-[9px]">public/documents/ModulAjar.pdf</code> atau <code className="bg-gray-100 px-1 py-0.5 rounded font-mono text-[9px]">/src/assets/foto_1.jpg</code>), atau Anda juga bisa mengetik link URL file internet mana saja.
+                    Tulis path relatif file lokal yang Anda taruh di dalam folder project Anda (misal <code className="bg-gray-100 px-1 py-0.5 rounded font-mono text-[9px]">/documents/ModulAjar.pdf</code> atau <code className="bg-gray-100 px-1 py-0.5 rounded font-mono text-[9px]">/documents/foto_1.jpg</code>), atau Anda juga bisa mengetik link URL file internet mana saja.
                   </p>
                 </div>
 
