@@ -15,6 +15,7 @@ export default function PdfViewer({ documentId, title }: PdfViewerProps) {
   const [uploadedFileUrl, setUploadedFileUrl] = useState<string | null>(null);
   const [uploadedFileName, setUploadedFileName] = useState<string | null>(null);
   const [previewMode, setPreviewMode] = useState<"iframe" | "interactive">("iframe");
+  const [downloading, setDownloading] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Auto clean up object URLs when key dynamic parameters or unmount occur
@@ -38,6 +39,32 @@ export default function PdfViewer({ documentId, title }: PdfViewerProps) {
   // Match default path to the local documents folder in public directory
   const defaultPdfPath = `/documents/${documentId}.pdf`;
   const activePdfPath = uploadedFileUrl || defaultPdfPath;
+
+  const handleDownload = async () => {
+    if (downloading) return;
+    setDownloading(true);
+    try {
+      const response = await fetch(activePdfPath);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch PDF: ${response.statusText}`);
+      }
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = uploadedFileName || `${documentId}.pdf`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    } catch (err) {
+      console.error("PDF download failed:", err);
+      // Fallback opening the direct path in a new tab if everything fails
+      window.open(activePdfPath, "_blank");
+    } finally {
+      setDownloading(false);
+    }
+  };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -203,14 +230,24 @@ export default function PdfViewer({ documentId, title }: PdfViewerProps) {
           </a>
 
           {/* Download button */}
-          <a
-            href={activePdfPath}
-            download={uploadedFileName || `${documentId}.pdf`}
-            className="px-4 py-2 bg-gradient-to-r from-primary to-accent text-white font-medium text-xs rounded-xl shadow-sm hover:shadow transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer"
+          <button
+            onClick={handleDownload}
+            disabled={downloading}
+            className={`px-4 py-2 bg-gradient-to-r from-primary to-accent text-white font-medium text-xs rounded-xl shadow-sm hover:shadow transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer ${downloading ? "opacity-75 cursor-not-allowed" : ""}`}
+            title="Download PDF secara aman"
           >
-            <Download className="h-3.5 w-3.5" />
-            Unduh PDF
-          </a>
+            {downloading ? (
+              <div className="flex items-center gap-1.5">
+                <div className="w-3 h-3 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                <span>Mengunduh...</span>
+              </div>
+            ) : (
+              <>
+                <Download className="h-3.5 w-3.5" />
+                <span>Unduh PDF</span>
+              </>
+            )}
+          </button>
         </div>
       </div>
 

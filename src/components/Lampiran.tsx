@@ -400,35 +400,78 @@ export default function Lampiran() {
     }
   };
 
-  const triggerDownload = (item: AttachmentItem) => {
+  const triggerDownload = async (item: AttachmentItem) => {
     if (downloadingId) return; // Wait for current download
 
     setDownloadingId(item.id);
-    setDownloadProgress(0);
+    setDownloadProgress(5);
 
-    const interval = setInterval(() => {
-      setDownloadProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          setTimeout(() => {
-            setDownloadingId(null);
-            
-            // Generate mock file trigger
-            const blob = new Blob([`PPG Portfolio Document - ${item.title}`], { type: "text/plain" });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement("a");
-            a.href = item.imgUrl || url;
-            a.download = `${item.title.toLowerCase().replace(/[\s–-]+/g, "_")}.${item.fileType.toLowerCase()}`;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-          }, 600);
-          return 100;
-        }
-        return prev + 15;
-      });
+    // Start a visual progress indicator
+    let currentProgress = 5;
+    const progressInterval = setInterval(() => {
+      currentProgress = Math.min(currentProgress + Math.floor(Math.random() * 15) + 5, 95);
+      setDownloadProgress(currentProgress);
     }, 150);
+
+    try {
+      let downloadUrl = "";
+      let isBlobCreated = false;
+
+      if (item.imgUrl) {
+        try {
+          const response = await fetch(item.imgUrl);
+          if (!response.ok) {
+            throw new Error(`Fetch failed with status ${response.status}`);
+          }
+          const blob = await response.blob();
+          downloadUrl = URL.createObjectURL(blob);
+          isBlobCreated = true;
+        } catch (err) {
+          console.error("Fetch download failed, falling back to direct URL:", err);
+          // Fallback to direct URL if fetch fails
+          downloadUrl = item.imgUrl;
+        }
+      }
+
+      if (!downloadUrl) {
+        // Fallback to creating a local mock file so it never fails
+        const mockBlob = new Blob([`PPG Portfolio Document - ${item.title}`], { type: "text/plain" });
+        downloadUrl = URL.createObjectURL(mockBlob);
+        isBlobCreated = true;
+      }
+
+      // Finish progress animation beautifully
+      clearInterval(progressInterval);
+      setDownloadProgress(100);
+
+      setTimeout(() => {
+        setDownloadingId(null);
+        
+        const a = document.createElement("a");
+        a.href = downloadUrl;
+        a.download = `${item.title.toLowerCase().replace(/[\s–-]+/g, "_")}.${item.fileType.toLowerCase()}`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+
+        // Clean up the object URL after triggering click if we created it
+        if (isBlobCreated) {
+          setTimeout(() => {
+            URL.revokeObjectURL(downloadUrl);
+          }, 1000);
+        }
+      }, 400);
+
+    } catch (error) {
+      console.error("Download processing errored:", error);
+      clearInterval(progressInterval);
+      setDownloadingId(null);
+      
+      // Ultimate resilient fallback if everything crashed: open direct link in a new tab
+      if (item.imgUrl) {
+        window.open(item.imgUrl, "_blank");
+      }
+    }
   };
 
   // Filter items matching activeTab
